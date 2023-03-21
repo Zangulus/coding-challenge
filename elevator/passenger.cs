@@ -5,17 +5,20 @@ namespace ElevatorChallenge
 {
     public class Passenger
     {
-        public int PassengerID {get; set;}
+        static int nextId;
+        public int PassengerID {get; private set;}
         public int StartFloor {get; set;}
         public int EndFloor {get; set;}
         public int Weight {get; set;}
+        public string StartDirection {get; set;}
 
-        public Passenger(int ID, int SFloor, int EFloor)
+        public Passenger(int SFloor, string SDirection)
         {
-            PassengerID = ID;
+            PassengerID = Interlocked.Increment(ref nextId);
             StartFloor = SFloor;
             EndFloor = EFloor;
             Weight = Math.floor(Math.random() * (200 - 50 + 1) + 50 );  //setting a random weight for each instance of person between 50 and 200
+            StartDirection = SDirection;
         }
 
         public Direction Direction

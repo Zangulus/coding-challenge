@@ -21,7 +21,22 @@ namespace ElevatorChallenge
             }
             Console.WriteLine();
 
-            
+
+            //Might need to move this below section to another file
+            Console.WriteLine("Please enter the floor of the passenger and direction they wish to go (EX. 4D or 7U). ");
+            string floorRequest = Console.ReadLine();
+            //Check if the rquest is from outside or inside
+            if (floorRequest.Length = 2)
+            {
+                //split the string to grab the starting floor and passengers requested direction
+                var floor = floorRequest.Substring(0, (int)(MyString.Length / 2));
+                var direction = floorRequest.Substring((int)(MyString.Length / 2), (int)(MyString.Length / 2));
+                Passenger = new Passenger(floor, direction);
+            }
+            else if (floorRequest.Length = 1)
+            {
+                
+            }
         }
     }
 }

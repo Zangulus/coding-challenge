@@ -34,13 +34,32 @@ namespace ElevatorChallenge
                 }
                 else
                 {
+                    // Arrive at floor next floor in queue
+                    Console.WriteLine("Elevator has arrived at floor: " + elevator.CurrentFloor );
+                    WaitAtFloor();
+                    // remove selected floor from queue
 
                 }
         }
 
         public void MoveElevatorDown()
         {
-
+              if (elevator.CurrentFloor != elevator.SelectedFloor)
+                {
+                    FindHighestEndFloor();
+                    // Move down to the next floor
+                    Console.WriteLine("The current floor is: " + elevator.CurrentFloor + ". The elevator is moving: " + elevator.Direction );
+                    FloorToFloor();
+                    elevator.CurrentFloor--;
+                }
+                else
+                {
+                    // Arrive at floor next floor in queue
+                    Console.WriteLine("Elevator has arrived at floor: " + elevator.CurrentFloor );
+                    WaitAtFloor();
+                    // remove selected floor from queue
+                    
+                }
         }
 
         //Find the lowest floor based on passengers for the elevator to currently move to
